@@ -1,22 +1,50 @@
-import logo from "./logo.svg";
 import "./App.scss";
+import Container from "react-bootstrap/Container";
+import { ToastContainer } from "react-toastify";
+import React, { useEffect, useContext } from "react";
+import Header from "./components/Nav/Header";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Page404 from "./components/ErrorPage/Page404";
+import Login from "./components/Login/Login";
+import CreateAccount from "./components/CreateAccount/CreateAccount";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello world React with Hoi Dan IT</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <div className="app-container">
+          {/* <Header /> */}
+          <Container></Container>
+        </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        <Switch>
+          <Route path="/" exact>
+            home{" "}
+          </Route>
+          <Route path="/about">about</Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/create-account">
+            <CreateAccount />
+          </Route>
+          <Route path="*">
+            <Page404 />{" "}
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
