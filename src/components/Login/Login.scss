@@ -34,6 +34,15 @@
             font-weight: 700;
             padding: 0.4rem;
           }
+          .input-password {
+            position: relative;
+            .fa-eye-slash,
+            .fa-eye {
+              position: absolute;
+              top: 30%;
+              left: 90%;
+            }
+          }
           .forgotten {
             text-align: center;
             .forgotten-password {

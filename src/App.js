@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Page404 from "./components/ErrorPage/Page404";
 import Login from "./components/Login/Login";
 import CreateAccount from "./components/CreateAccount/CreateAccount";
-
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <>
@@ -18,7 +18,7 @@ function App() {
         </div>
         <ToastContainer
           position="top-right"
-          autoClose={5000}
+          autoClose={4000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
