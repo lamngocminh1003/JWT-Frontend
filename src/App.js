@@ -1,20 +1,23 @@
 import "./App.scss";
-import Container from "react-bootstrap/Container";
 import { ToastContainer } from "react-toastify";
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Nav/Header";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Page404 from "./components/ErrorPage/Page404";
-import Login from "./components/Login/Login";
-import CreateAccount from "./components/CreateAccount/CreateAccount";
+import { BrowserRouter as Router } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import AppRoutes from "./routes/AppRoutes";
 function App() {
+  const [account, setAccount] = useState({});
+  useEffect(() => {
+    let session = sessionStorage.getItem("account");
+    if (session) {
+      setAccount(JSON.parse(session));
+    }
+  }, []);
   return (
     <>
       <Router>
         <div className="app-container">
-          {/* <Header /> */}
-          <Container></Container>
+          <AppRoutes />
         </div>
         <ToastContainer
           position="top-right"
@@ -28,21 +31,6 @@ function App() {
           pauseOnHover
           theme="light"
         />
-        <Switch>
-          <Route path="/" exact>
-            home{" "}
-          </Route>
-          <Route path="/about">about</Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/create-account">
-            <CreateAccount />
-          </Route>
-          <Route path="*">
-            <Page404 />{" "}
-          </Route>
-        </Switch>
       </Router>
     </>
   );

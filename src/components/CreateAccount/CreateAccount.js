@@ -130,132 +130,129 @@ const CreateAccount = (props) => {
   };
   return (
     <div className="create-account-container ">
-      <form>
-        <div className="container">
-          <div className="row">
-            <div className="content-left col-sm-12 col-lg-6 ">
-              <div className="brand mt-4">JWT App</div>
-            </div>
-            <div className="content-right mt-4 col-12 col-lg-6">
-              <div className="create-account-form">
-                <div className="mb-3">
-                  <div className="title">Create a new account</div>
-                  <div className="detail">It's quick and easy.</div>
-                </div>
-                <hr />
-                <div className="mb-3 row">
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      className={
-                        objCheckInput.isValidUserName
-                          ? "form-control"
-                          : "form-control is-invalid"
-                      }
-                      placeholder="User name"
-                      value={userName}
-                      ref={(ref) => addInputRef(ref, 0)}
-                      onChange={(e) => handleInputChange(e, 0)}
-                      required
-                    />
-                  </div>
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      placeholder="Phone number"
-                      value={phone}
-                      onChange={(e) => handleInputChange(e, 1)}
-                      ref={(ref) => addInputRef(ref, 1)}
-                      required
-                      className={
-                        objCheckInput.isValidPhone
-                          ? "form-control"
-                          : "form-control is-invalid"
-                      }
-                    />
-                  </div>
-                </div>
-                <div className="mb-3">
+      <div className="container">
+        <div className="row">
+          <div className="content-left col-sm-12 col-lg-6 ">
+            <div className="brand mt-4">JWT App</div>
+          </div>
+          <div className="content-right mt-4 col-12 col-lg-6">
+            <div className="create-account-form">
+              <div className="mb-3">
+                <div className="title">Create a new account</div>
+                <div className="detail">It's quick and easy.</div>
+              </div>
+              <hr />
+              <div className="mb-3 row">
+                <div className="col-6">
                   <input
-                    type="email"
+                    type="text"
                     className={
-                      objCheckInput.isValidEmail
+                      objCheckInput.isValidUserName
                         ? "form-control"
                         : "form-control is-invalid"
                     }
-                    placeholder="Email address"
-                    value={email}
-                    onChange={(e) => handleInputChange(e, 2)}
-                    ref={(ref) => addInputRef(ref, 2)}
+                    placeholder="User name"
+                    value={userName}
+                    ref={(ref) => addInputRef(ref, 0)}
+                    onChange={(e) => handleInputChange(e, 0)}
                     required
                   />
                 </div>
-                <div className="mb-3 input-password">
+                <div className="col-6">
                   <input
-                    type={isShowPassword === true ? "text" : "password"}
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => handleInputChange(e, 3)}
-                    ref={(ref) => addInputRef(ref, 3)}
+                    type="text"
+                    placeholder="Phone number"
+                    value={phone}
+                    onChange={(e) => handleInputChange(e, 1)}
+                    ref={(ref) => addInputRef(ref, 1)}
                     required
                     className={
-                      objCheckInput.isValidPassword
+                      objCheckInput.isValidPhone
                         ? "form-control"
                         : "form-control is-invalid"
                     }
                   />
-                  <i
-                    className={
-                      isShowPassword === true
-                        ? "fa-regular fa-eye "
-                        : "fa-regular fa-eye-slash"
-                    }
-                    onClick={() => setIsShowPassword(!isShowPassword)}
-                  ></i>
                 </div>
-                <div className="mb-3 input-password">
-                  <input
-                    type={isShowRePassword === true ? "text" : "password"}
-                    className={
-                      objCheckInput.isValidRePassword
-                        ? "form-control"
-                        : "form-control is-invalid"
-                    }
-                    placeholder="Re-enter password"
-                    value={rePassword}
-                    onChange={(e) => handleInputChange(e, 4)}
-                    ref={(ref) => addInputRef(ref, 4)}
-                    onKeyDown={(event) => handlePressEnter(event)}
-                    required
-                  />
-                  <i
-                    className={
-                      isShowRePassword === true
-                        ? "fa-regular fa-eye "
-                        : "fa-regular fa-eye-slash"
-                    }
-                    onClick={() => setIsShowRePassword(!isShowRePassword)}
-                  ></i>
-                </div>
-                <div className="create">
-                  <button
-                    type="submit"
-                    className="btn btn-success"
-                    onClick={() => handleRegister()}
-                  >
-                    Register{" "}
-                  </button>
-                  <div className="forgotten mt-3">
-                    <Link className="forgotten-password " to="/login">
-                      Already have an account?
-                    </Link>
-                  </div>
+              </div>
+              <div className="mb-3">
+                <input
+                  type="email"
+                  className={
+                    objCheckInput.isValidEmail
+                      ? "form-control"
+                      : "form-control is-invalid"
+                  }
+                  placeholder="Email address"
+                  value={email}
+                  onChange={(e) => handleInputChange(e, 2)}
+                  ref={(ref) => addInputRef(ref, 2)}
+                  required
+                />
+              </div>
+              <div className="mb-3 input-password">
+                <input
+                  type={isShowPassword === true ? "text" : "password"}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => handleInputChange(e, 3)}
+                  ref={(ref) => addInputRef(ref, 3)}
+                  required
+                  className={
+                    objCheckInput.isValidPassword
+                      ? "form-control"
+                      : "form-control is-invalid"
+                  }
+                />
+                <i
+                  className={
+                    isShowPassword === true
+                      ? "fa-regular fa-eye "
+                      : "fa-regular fa-eye-slash"
+                  }
+                  onClick={() => setIsShowPassword(!isShowPassword)}
+                ></i>
+              </div>
+              <div className="mb-3 input-password">
+                <input
+                  type={isShowRePassword === true ? "text" : "password"}
+                  className={
+                    objCheckInput.isValidRePassword
+                      ? "form-control"
+                      : "form-control is-invalid"
+                  }
+                  placeholder="Re-enter password"
+                  value={rePassword}
+                  onChange={(e) => handleInputChange(e, 4)}
+                  ref={(ref) => addInputRef(ref, 4)}
+                  onKeyDown={(event) => handlePressEnter(event)}
+                  required
+                />
+                <i
+                  className={
+                    isShowRePassword === true
+                      ? "fa-regular fa-eye "
+                      : "fa-regular fa-eye-slash"
+                  }
+                  onClick={() => setIsShowRePassword(!isShowRePassword)}
+                ></i>
+              </div>
+              <div className="create">
+                <button
+                  className="btn btn-success"
+                  onClick={() => handleRegister()}
+                >
+                  Register{" "}
+                </button>
+                <div className="forgotten mt-3">
+                  <Link className="forgotten-password " to="/login">
+                    Already have an account?
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

@@ -5,11 +5,13 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+
   document.getElementById("root")
 );
 
